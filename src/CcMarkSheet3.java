@@ -14,16 +14,19 @@ public class CcMarkSheet3 {
         int Maths = scan.nextInt();
         if (Maths < 0 || Maths > 100) {
             System.out.println("Invalid Maths marks ");
+            System.exit(-1);
         }
         System.out.println("Enter Your Science's marks :");
         int Science = scan.nextInt();
         if (Science < 0 || Science > 100) {
             System.out.println("Invalid Science Marks");
+            System.exit(-1);
         }
         System.out.println("Enter Your English's marks :");
         int English = scan.nextInt();
         if (English < 0 || English > 100) {
             System.out.println("Invalid English Marks");
+            System.exit(-1);
         }
         System.out.println("---------------------------");
         System.out.println("|        Mark Sheet       |");
@@ -42,36 +45,38 @@ public class CcMarkSheet3 {
 
 
         int Total = Maths + Science + English;
-        System.out.println("| Total :  " +new DecimalFormat("000").format(Total) + "            |");
+        System.out.println("| Total :  " + new DecimalFormat("000").format(Total) + "            |");
         System.out.println("|-------------------------|");
         double percentage = ((Total * 100) / 300);
         System.out.println("|Percentage:  " + percentage + "        |");
         if (Maths <= 34 || English <= 34 || Science <= 34) {
             System.out.println("|Result:  " + "Fail" + "            |");
+            System.out.println("|Grade:      No Grade     |");
+            System.out.println("|-------------------------|");
         } else
-            System.out.println("|Result:  " + "Pass" + "            |");
 
-        if (percentage >= 80.0) {
-            System.out.println("|Grade:  " + "A+" + "               |");
-            System.out.println("|-------------------------|");
-        }
-        if (percentage >= 60.0 && percentage < 80.0) {
-            System.out.println("|Grade:  " + "A" + "                |");
-            System.out.println("|-------------------------|");
-        }
-        if (percentage >= 50.0 && percentage < 60.0) {
-            System.out.println("|Grade:  " + "B" + "                |");
-            System.out.println("|-------------------------|");
-        }
-        if (percentage >= 35.0 && percentage < 50.0) {
-            System.out.println("|Grade:  " + "C" + "                |");
-            System.out.println("|-------------------------|");
-        }
-        if (percentage < 35) {
-            System.out.println("|No Grade:                          |");
-            System.out.println("|-------------------------|");
-        }
+            if (percentage >= 80.0 && Maths >= 35 && English >= 35 && Science >= 35) {
+                System.out.println("|Result:  " + "Pass" + "            |");
+                System.out.println("|Grade:  " + "A+" + "               |");
+                System.out.println("|-------------------------|");
+            }
+            if (percentage >= 60.0 && percentage < 80.0 && Maths >= 35 && English >= 35 && Science >= 35) {
+                System.out.println("|Result:  " + "Pass" + "            |");
+                System.out.println("|Grade:  " + "A" + "                |");
+                System.out.println("|-------------------------|");
+            }
+            if (percentage >= 50.0 && percentage < 60.0 && Maths >= 35 && English >= 35 && Science >= 35) {
+                System.out.println("|Result:  " + "Pass" + "            |");
+                System.out.println("|Grade:  " + "B" + "                |");
+                System.out.println("|-------------------------|");
+            }
+            if (percentage >= 35.0 && percentage < 50.0 && Maths >= 35 && English >= 35 && Science >= 35) {
+                System.out.println("|Result:  " + "Pass" + "            |");
+                System.out.println("|Grade:  " + "C" + "                |");
+                System.out.println("|-------------------------|");
+            }
     }
+
     public static void main(String[] args) {
         studentdetails();
     }
